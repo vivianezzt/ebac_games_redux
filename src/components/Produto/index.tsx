@@ -25,15 +25,18 @@ const Produto = ({ game }: Props) => {
       </S.Capa>
       <S.Titulo>{game.titulo}</S.Titulo>
       <S.Plataformas>
-        {game.plataformas.map((plat) => (
-          <li key={plat}>{plat}</li>
-        ))}
+        {Array.isArray(game.plataformas) &&
+          game.plataformas.map((plat) => <li key={plat}>{plat}</li>)}
       </S.Plataformas>
       <S.Prices>
         {game.precoAntigo && <small>{paraReal(game.precoAntigo)}</small>}
         <strong>{paraReal(game.preco)}</strong>
       </S.Prices>
-      <S.BtnComprar onClick={() => dispatch(adicionar(game))} type="button">
+      <S.BtnComprar
+        data-testid="btn-adicionar-produto"
+        onClick={() => dispatch(adicionar(game))}
+        type="button"
+      >
         Adicionar ao carrinho
       </S.BtnComprar>
     </S.Produto>

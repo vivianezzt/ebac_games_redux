@@ -7,7 +7,7 @@ import { GlobalStyle } from './styles'
 import { store } from './store'
 
 export type Game = {
-  id: number
+  id: string
   titulo: string
   plataformas: string[]
   precoAntigo: number
